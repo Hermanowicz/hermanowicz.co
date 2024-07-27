@@ -1,8 +1,9 @@
-import { defineConfig } from 'astro/config'
-import mdx from '@astrojs/mdx'
-import sitemap from '@astrojs/sitemap'
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
-import tailwind from '@astrojs/tailwind'
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,9 +17,10 @@ export default defineConfig({
       // See note below for using dual light/dark themes
       themes: {
         light: 'material-theme',
-        dark: 'material-theme-darker',
-      },
-    },
+        dark: 'material-theme-darker'
+      }
+    }
   },
-
-})
+  output: "server",
+  adapter: cloudflare()
+});
