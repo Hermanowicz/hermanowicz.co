@@ -17,6 +17,7 @@ export async function getStaticPaths() {
 }
 const {tag, posts} = Astro.props;
 type Post = CollectionEntry<'blog'>;
+export const prerender = true;
 ---
 
 <!doctype html>

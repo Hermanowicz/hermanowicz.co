@@ -2,12 +2,13 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-
 import cloudflare from "@astrojs/cloudflare";
+
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://hermanowicz.co',
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
     shikiConfig: {
@@ -22,5 +23,7 @@ export default defineConfig({
     }
   },
   output: "server",
-  adapter: cloudflare()
+  adapter: node({
+    mode: "standalone"
+  })
 });
